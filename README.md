@@ -21,15 +21,17 @@ python -m preprocessing.x_prep.step3_encoding --dataset mimic_demo
 python -m preprocessing.x_prep.step4_normalize --dataset mimic_demo
 python -m preprocessing.x_prep.step5_group --dataset mimic_demo
 
-# models
+# models (self supervised learning) 
 - STAT
 python -m models.stats --dataset mimic_demo
-- singleLSTM
+- singleLSTM - We procide code both for multi and single channel LSTM - however singleLSTM is significantly less GPU-memory hungry allowing its training in smaller GPUs. 
 python -m models.lstmv5 --dataset mimic_demo --mode train --max_steps 10000 --max_patients 10000 --learning_rate 5e-5 --batch_size 2 --timeseries_model singleLSTM
 - GRU
 python -m models.lstmv5 --dataset mimic_demo --mode train --max_steps 10000 --max_patients 10000 --learning_rate 5e-5 --batch_size 2 --timeseries_model singleLSTM --gru
 
-# stratification
+# stratification (unsupervised learning) 
+
+This step uses vector representation from STAT LSTM and GRU
 - STAT
 python -m experiments.IR12 --dataset mimic_demo --trials 10 --optimize --mode stats --fpath
 data/embeddings/stats_mimic_demo/stats_test_mimic_demo_patient_embeddings.csv
