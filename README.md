@@ -9,7 +9,8 @@ Rest of code will be released soon.
 ## Programming Language  requirements 
 -  Rscript --version 
 Rscript  (R) version 4.3.2 (2023-10-31)
-Note:  unfortunatly the `units` R package library is only smoothly working avaialble  in Windows hence at least for the first script youy will need to run it in Windows. The rest (everything apart from `step1.r`) should be run in Linux or MacOS.
+Note:  unfortunatly the `units` R package library is only working in Windows hence at least for the `step_1.R` script you will need to Windows.
+The rest (everything apart from `step1.r`) should be run in Linux or MacOSX.
 That said we are actively  working in rewritiing the library in python/linux using a fork of rICU.
 -  python --version
 Python 3.10.12
